@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hort Trans UA - Рекрутація</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="short icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="js/js.js" defer></script>
+    <script src="js/recruitment.js" defer></script>
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="left__navigation">
+            <a href="https://vlad-bit-ui.github.io/htua.vtc/" class="logo__header">
+                <img src="images/logo.jpg" class="logo__header">
+            </a>
+        </div>
+        <div class="right__navigation">
+            <nav>
+                <ul class="header__navigation">
+                    <li><a href="https://vlad-bit-ui.github.io/htua.vtc/" class="header__link">
+                            Головна
+                        </a>
+                    </li>
+                    <li><a href="about" class="header__link">
+                            Про нас
+                        </a>
+                    </li>
+                    <li><a href="recruitment" class="header__link header__link-active">
+                            Рекрутація
+                        </a>
+                    </li>
+                    <li><a href="rules" class="header__link">
+                            Правила
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container__recruitment-main">
+        <span class="title__recruitment">Рекрутація</span>
+    </div>
+
+    <main class="main__applyes">
+
+        <div class="block__text-applyes title-applyes neon">
+            <h2 style="color: #e0e6ed; font-weight: 400;">Заявка на вступ до компанії</h2>
+        </div>
+
+        <div class="block__text-applyes neon" style="margin-top: 50px;">
+            <h3 class="text__400">Інформація</h3>
+            <h3 class="text__400" style="margin-top: 30px;">Вимоги</h3>
+            <div style="display: flex; flex-direction: column; margin-left: 40px; gap: 10px;">
+                <ul style="margin-top: 10px;">
+                    <li style="list-style: disc;">Вам повинно бути не менше 14 років</li>
+                    <li style="list-style: disc;">Ви повинні проїзжати на тиждень не менше ніж 5000 км</li>
+                    <li style="list-style: disc;">Бути активним, адекватним</li>
+                    <li style="list-style: disc;">Мати досвід управління фурою</li>
+                    <li style="list-style: disc;">Не перебувати в інших компаніях, коли подаєте заявку</li>
+                </ul>
+            </div>
+            <h3 class="text__400" style="margin-top: 30px;">Чому вашу заявку може бути відхилено?</h3>
+            <div style="display: flex; flex-direction: column; margin-left: 40px; gap: 10px;">
+                <ul style="margin-top: 10px;">
+                    <li style="list-style: disc;">Вам менше 14 років</li>
+                    <li style="list-style: disc;">Ви неправильно заповнили поля для подачі заявки</li>
+                    <li style="list-style: disc;">Ви подали заявку з фейковими або неповними даними</li>
+                    <li style="list-style: disc;">Ваша поведінка суперечить правилам проєкту</li>
+                    <li style="list-style: disc;">Ви вже подавали заявку раніше та отримали відмову</li>
+                    <li style="list-style: disc;">Ваша активність в компанії недостатня</li>
+                </ul>
+            </div>
+            <form style="margin-top: 10px; display: flex; flex-direction: column; gap: 20px;">
+                <div class="container__input-apply" style="margin-top: 25px;">
+                    <label>Email <span style="color: red;">*</span></label>
+                    <input type="text" name="email" id="email" autocomplete="on" placeholder="name@email.com"
+                        value="@gmail.com" class="input input__apply" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+                <div class="container__input-apply">
+                    <label>Ім'я коритувача Discord <span style="color: red;">*</span></label>
+                    <input type="text" name="usernameDiscord" id="usernameDiscord" autocomplete="on"
+                        placeholder="Ім'я коритувача Discord" class="input input__apply">
+                </div>
+                <div class="container__input-apply">
+                    <label>Чи є у Вас якісь DLC? <span style="color: red;">*</span></label>
+                    <input type="text" name="dlc" id="dlc" autocomplete="on" placeholder="Чи є у Вас якісь DLC?"
+                        class="input input__apply">
+                </div>
+                <div class="container__input-apply">
+                    <label>Ваш вік <span style="color: red;">*</span></label>
+                    <input class="input input__apply" name="age" min="14" max="99" maxlength="2" type="number" id="age"
+                        placeholder="Ваш вік" oninput="this.value = this.value.slice(0, 2);">
+                </div>
+                <div class="container__input-apply">
+                    <label>Ваша активність на тиждень <span style="color: red;">*</span></label>
+                    <input class="input input__apply" name="activity" type="text" id="activity"
+                        placeholder="Ваша активність на тиждень">
+                </div>
+                <div class="container__input-apply">
+                    <label>Чому ви хочете приєднатися саме до нашої компанії? <span style="color: red;">*</span></label>
+                    <input class="input input__apply" type="text" id="person"
+                        placeholder="Чому ви хочете приєднатися саме до нашої компанії?">
+                </div>
+                <div class="container__input-apply">
+                    <label>Скільки Ви проїзжаєте на тиждень? (В км) <span style="color: red;">*</span></label>
+                    <input class="input input__apply" type="text" id="km" placeholder="1000 - 5000 км" maxlength="500">
+                </div>
+                <div class="container__input-apply">
+                    <label>Коментар (Необов'язково)</label>
+                    <input class="input input__apply" type="text" id="comment" placeholder="Коментар">
+                </div>
+                <div style="width: 556px; display: flex; gap: 20px; align-items: center;">
+                    <button class="btn__send-recruitment" type="submit">
+                        Подати заявку
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <div class="container__form-sended">
+        <div class="block__form-sended">
+            <img src="images/svg/ok.svg" width="96px">
+            <h2 class="text__400">Вашу заявку успішно надіслано!</h2>
+            <h3 class="text__400">Заявку буде перевірено протягом 24 годин</h3>
+            <div class="btn__close block__form-sended-btn--close" id="close__btn">
+                <img src="images/svg/close.svg">
+            </div>
+            <a href="https://vlad-bit-ui.github.io/htua.vtc/" class="btn-cookie accept-btn back__toIndex-btn">
+                На головну
+            </a>
+        </div>
+    </div>
+
+    <div class="popup__recruitment" id="popupRecruitment">
+        <div class="popup__content-recruitment">
+            <div class="btn__close-popup" id="btn__close-popup">
+                <img src="images/svg/close.svg">
+            </div>
+            <span class="popup__title">Інформація</span>
+            <div class="popup__recruitment-text">Ви вже подавали заявку<span id="days-popup"> </span></div>
+            <div class="popup__recruitment-text">Подайте ще раз через<span id="days-next-form"> </span></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
