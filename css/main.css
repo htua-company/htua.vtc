@@ -207,16 +207,12 @@ header.scroll {
 }
 
 .letters__big-hort {
-    background: linear-gradient(135deg, #0d59a1 0%, #f1e604 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary);
     -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
 .letters__big-ua {
-    background: linear-gradient(135deg, #f1e604 0%, #f1c904 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary);
     -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
