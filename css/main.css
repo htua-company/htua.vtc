@@ -295,7 +295,10 @@ header.scroll {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px 35px;
+    text-align: center;
+    width: 186px;
+    height: 270px;
+    padding: 15px 25px;
     border-radius: 3px;
     border: 2px solid rgb(95, 95, 95);
     transition: 0.2s all ease;
@@ -307,9 +310,8 @@ header.scroll {
 }
 
 .container__ourCommand {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -324,7 +326,7 @@ header.scroll {
 
 .nickname__command {
     color: var(--primary);
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -1204,6 +1206,8 @@ footer {
 
     .container__ourCommand {
         padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .block__command {
@@ -1277,6 +1281,13 @@ footer {
         margin: 20px;
         padding: 24px;
         max-width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 673px) {
+    .container__ourCommand {
+        display: flex;
+        flex-direction: column;
     }
 }
 
