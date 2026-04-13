@@ -1149,6 +1149,78 @@ footer {
     gap: 20px;
 }
 
+:root {
+    --accent-color: #3498db;
+    /* Можно заменить на свой основной цвет */
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --bg-card: #121212;
+}
+
+.agreement__container {
+    max-width: 850px;
+    margin: 150px auto 60px;
+    padding: 40px 50px;
+    color: var(--primary);
+    border-radius: 20px;
+    line-height: 1.8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.agreement__container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.agreement__container h2 {
+    font-size: 1.6rem;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.agreement__container p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    text-align: justify;
+}
+
+.agreement__container ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.agreement__container li {
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .agreement__container {
+        padding: 25px 20px;
+        margin: 100px 15px 40px;
+        border-radius: 12px;
+    }
+
+    .agreement__container h1 {
+        font-size: 1.8rem;
+    }
+
+    .agreement__container h2 {
+        font-size: 1.3rem;
+    }
+
+    .agreement__container p {
+        text-align: left;
+    }
+}
+
 @media (max-width: 768px) {
     .header {
         padding: 1rem;
