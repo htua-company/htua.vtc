@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hort Trans UA | Події</title>
+    <link rel="short icon" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;900&family=Russo+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/js.js" defer></script>
+    <script src="js/events.js" defer></script>
+</head>
+
+<body>
+
+    <div class="bg__effects">
+        <div class="glow__orb__1"></div>
+        <div class="glow__orb__2"></div>
+    </div>
+
+    <header class="header">
+        <a class="header__logo" href="/">
+            <span class="logo__text">HORT TRANS UA <span class="blue__accent">VTC</span></span>
+        </a>
+
+        <button class="header__burger" aria-label="Toggle menu">
+            <span class="header__burger__line"></span>
+            <span class="header__burger__line"></span>
+            <span class="header__burger__line"></span>
+        </button>
+
+        <nav class="header__nav">
+            <ul class="header__menu">
+                <li><a href="/" class="header__menu__link">Головна</a></li>
+                <li><a href="apply" class="header__menu__link">Вступити до нас</a></li>
+                <li><a href="team" class="header__menu__link">Команда</a></li>
+                <li><a href="events" class="header__menu__link header__menu__link__active">Події</a></li>
+                <li><a href="gallery" class="header__menu__link">Галерея</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="events">
+        <h1 class="events__title">Події <span class="blue__accent">VTC</span></h1>
+        <p class="events__subtitle">Конвої та заходи, в яких ми беремо участь</p>
+
+        <div id="events-skeleton" class="events-skeleton__grid">
+            <div class="events-skeleton__card">
+                <div class="events-skeleton__cover"></div>
+                <div class="events-skeleton__body">
+                    <div class="events-skeleton__line events-skeleton__line--title"></div>
+                    <div class="events-skeleton__line events-skeleton__line--sm"></div>
+                    <div class="events-skeleton__line events-skeleton__line--md"></div>
+                    <div class="events-skeleton__line events-skeleton__line--sm"></div>
+                </div>
+            </div>
+            <div class="events-skeleton__card">
+                <div class="events-skeleton__cover"></div>
+                <div class="events-skeleton__body">
+                    <div class="events-skeleton__line events-skeleton__line--title"></div>
+                    <div class="events-skeleton__line events-skeleton__line--sm"></div>
+                    <div class="events-skeleton__line events-skeleton__line--md"></div>
+                    <div class="events-skeleton__line events-skeleton__line--sm"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="events-grid" class="events__grid"></div>
+    </section>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner__container">
+            <div class="cookie-banner__content">
+                <div class="cookie-banner__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 4 4 0 0 1-5 5" />
+                        <circle cx="7.5" cy="13.5" r=".5" fill="currentColor" />
+                        <circle cx="11.5" cy="16.5" r=".5" fill="currentColor" />
+                        <circle cx="16.5" cy="13.5" r=".5" fill="currentColor" />
+                    </svg>
+                </div>
+                <p class="cookie-banner__text">
+                    Ми використовуємо файли cookie, щоб забезпечити найкращий досвід на нашому сайті. Продовжуючи
+                    користуватися сайтом, ви погоджуєтеся з нашою політикою.
+                </p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="cookie-btn cookie-btn__decline" id="cookieDecline">ВІДХИЛИТИ</button>
+                <button class="cookie-btn cookie-btn__accept" id="cookieAccept">ПРИЙНЯТИ</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <a href="/" class="footer__logo-link">
+                <img src="images/logo.png" alt="HTUA VTC" class="footer__logo">
+            </a>
+            <div class="footer__links-wrapper">
+                <div class="footer__column">
+                    <div class="footer__column-title">Навігація</div>
+                    <ul>
+                        <li><a href="/">Головна</a></li>
+                        <li><a href="apply">Вступити до нас</a></li>
+                        <li><a href="team">Команда</a></li>
+                        <li><a href="gallery">Галерея</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <div class="footer__column-title">Інформація</div>
+                    <ul>
+                        <li><a href="privacy">Політика конфіденційності</a></li>
+                        <li><a href="user_agreement">Угода користувача</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

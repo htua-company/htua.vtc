@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hort Trans UA | HTUA VTC</title>
+    <link rel="short icon" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;900&family=Russo+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/js.js" defer></script>
+    <script src="js/apply.js" defer></script>
+</head>
+
+<body>
+
+    <div class="bg__effects">
+        <div class="glow__orb__1"></div>
+        <div class="glow__orb__2"></div>
+    </div>
+
+    <header class="header">
+        <a class="header__logo" href="/">
+            <span class="logo__text">HORT TRANS UA <span class="blue__accent">VTC</span></span>
+        </a>
+
+        <button class="header__burger" aria-label="Toggle menu">
+            <span class="header__burger__line"></span>
+            <span class="header__burger__line"></span>
+            <span class="header__burger__line"></span>
+        </button>
+
+        <nav class="header__nav">
+            <ul class="header__menu">
+                <li><a href="/" class="header__menu__link">Головна</a></li>
+                <li><a href="apply" class="header__menu__link header__menu__link__active">Вступити до нас</a></li>
+                <li><a href="team" class="header__menu__link">Команда</a></li>
+                <li><a href="events" class="header__menu__link">Події</a></li>
+                <li><a href="gallery" class="header__menu__link">Галерея</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="apply">
+        <div class="apply__container">
+            <h1 class="apply__title">Вступити до <span class="blue__accent">HTUA VTC</span></h1>
+            <p class="apply__subtitle">Заповніть анкету нижче, щоб стати частиною нашої родини</p>
+
+            <div class="apply__info-row">
+                <div class="info__block requirements">
+                    <h2 class="info__title">
+                        <svg class="info__title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Вимоги спільноти
+                    </h2>
+                    <ul class="requirements__list">
+                        <li>
+                            <svg class="check__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Мати діючий акаунт TruckersMP
+                        </li>
+                        <li>
+                            <svg class="check__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Мінімальний вік — 16 років
+                        </li>
+                        <li>
+                            <svg class="check__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Робочий мікрофон для Discord
+                        </li>
+                        <li>
+                            <svg class="check__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Професійне ставлення та повага до інших
+                        </li>
+                        <li>
+                            <svg class="check__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Активна участь у конвоях (мінімум 2 на місяць)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info__block note">
+                    <h3 class="note__title">
+                        <svg class="note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Важлива примітка
+                    </h3>
+                    <p class="note__text">Заявки розглядаються протягом 48-72 годин. Переконайтеся, що ваші TruckersMP
+                        та Discord Username вказані правильно для зв'язку з вами.</p>
+                </div>
+            </div>
+
+            <form class="apply__form" id="applyForm">
+                <div class="form__grid">
+                    <div class="form__col">
+                        <h3 class="form__section-title">Основні дані</h3>
+
+                        <div class="form__group">
+                            <label class="form__label">
+                                <svg class="label__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Ваше ім'я
+                            </label>
+                            <input type="text" class="form__input" placeholder="Введіть ваше ім'я" required>
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__label">Ваш повний вік</label>
+                            <input type="number" class="form__input" placeholder="напр., 18" min="1" required>
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__label">
+                                <svg class="label__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                                TruckersMP ID
+                            </label>
+                            <input type="text" class="form__input" placeholder="напр., 1234567" required>
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__label">
+                                <svg class="label__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                Discord Username
+                            </label>
+                            <input type="text" class="form__input" placeholder="напр., htua_driver" required>
+                            <span class="form__hint">Вкажіть ваш унікальний нікнейм користувача без символу @.</span>
+                        </div>
+                    </div>
+
+                    <div class="form__col">
+                        <h3 class="form__section-title">Анкета водія</h3>
+
+                        <div class="form__group">
+                            <label class="form__label">Досвід у вантажоперевезеннях</label>
+                            <textarea class="form__textarea"
+                                placeholder="Розкажіть про свій досвід з ETS2/ATS та TruckersMP..." required></textarea>
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__label">Чому ви хочете приєднатися до Hort Trans UA VTC?</label>
+                            <textarea class="form__textarea"
+                                placeholder="Поділіться своєю мотивацією для вступу до нашої спільноти..."
+                                required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__actions">
+                    <button type="submit" class="form__submit">Надіслати заявку на розгляд</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <a href="/" class="footer__logo-link">
+                <img src="images/logo.png" alt="HTUA VTC" class="footer__logo">
+            </a>
+            <div class="footer__links-wrapper">
+                <div class="footer__column">
+                    <div class="footer__column-title">Навігація</div>
+                    <ul>
+                        <li><a href="/">Головна</a></li>
+                        <li><a href="apply">Вступити до нас</a></li>
+                        <li><a href="team">Команда</a></li>
+                        <li><a href="gallery">Галерея</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <div class="footer__column-title">Інформація</div>
+                    <ul>
+                        <li><a href="privacy">Політика конфіденційності</a></li>
+                        <li><a href="user_agreement">Угода користувача</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
