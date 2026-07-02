@@ -82,40 +82,101 @@ document.addEventListener('DOMContentLoaded', async () => {
         viewport.appendChild(marqueeTrack);
     }
 
-    try {
-        const targetUrl = `https://truckersmp.com/vtc/${VTC_ID}`;
-        let htmlText = '';
-
+    async function fetchWithTimeout(url, timeoutMs) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
         try {
-            const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`);
-            if (response && response.ok) htmlText = await response.text();
-        } catch (e) { }
+            const response = await fetch(url, { cache: 'no-store', signal: controller.signal });
+            return response;
+        } finally {
+            clearTimeout(timer);
+        }
+    }
 
-        if (!htmlText) {
+    async function fetchViaProxies(targetUrl) {
+        const attempts = [
+            {
+                label: 'allorigins-raw',
+                run: async () => {
+                    const response = await fetchWithTimeout(`https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}&_r=${Date.now()}`, 8000);
+                    if (response.ok) return await response.text();
+                    return '';
+                }
+            },
+            {
+                label: 'allorigins-get',
+                run: async () => {
+                    const response = await fetchWithTimeout(`https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}&_r=${Date.now()}`, 8000);
+                    if (response.ok) {
+                        const json = await response.json();
+                        return json?.contents || '';
+                    }
+                    return '';
+                }
+            },
+            {
+                label: 'codetabs',
+                run: async () => {
+                    const response = await fetchWithTimeout(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}&_r=${Date.now()}`, 8000);
+                    if (response.ok) return await response.text();
+                    return '';
+                }
+            },
+            {
+                label: 'corsproxy',
+                run: async () => {
+                    const response = await fetchWithTimeout(`https://corsproxy.io/?url=${encodeURIComponent(targetUrl)}&_r=${Date.now()}`, 8000);
+                    if (response.ok) return await response.text();
+                    return '';
+                }
+            }
+        ];
+
+        for (const attempt of attempts) {
             try {
-                const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
-                if (response && response.ok) htmlText = await response.text();
-            } catch (e) { }
+                const text = await attempt.run();
+                if (text && text.length > 500) return text;
+                console.warn(`Partners proxy "${attempt.label}" returned empty/short content`);
+            } catch (e) {
+                console.warn(`Partners proxy "${attempt.label}" failed:`, e);
+            }
         }
 
-        if (!htmlText) throw new Error('Failed to fetch HTML page');
+        return '';
+    }
+
+    function findPartnersContainer(doc) {
+        const gridCandidates = doc.querySelectorAll('div[style*="grid-template-columns"]');
+        for (const candidate of gridCandidates) {
+            if (candidate.querySelector('a[href*="/vtc/"] img[src*="/images/vtc/logo/"]')) {
+                return candidate;
+            }
+        }
+
+        const partnerLinks = doc.querySelectorAll('.fa-handshake');
+        let byIconContainer = null;
+        partnerLinks.forEach(el => {
+            const panel = el.closest('.panel-profile');
+            if (panel) {
+                byIconContainer = panel.querySelector('div[style*="display: grid"]');
+            }
+        });
+        if (byIconContainer) return byIconContainer;
+
+        const anyLogoImg = doc.querySelector('a[href*="/vtc/"] img[src*="/images/vtc/logo/"]');
+        return anyLogoImg?.parentElement?.parentElement || null;
+    }
+
+    try {
+        const targetUrl = `https://truckersmp.com/vtc/${VTC_ID}`;
+        const htmlText = await fetchViaProxies(targetUrl);
+
+        if (!htmlText) throw new Error('Failed to fetch HTML page from all proxies');
 
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlText, 'text/html');
 
-        const partnerLinks = doc.querySelectorAll('.fa-handshake');
-        let partnersContainer = null;
-
-        partnerLinks.forEach(el => {
-            const panel = el.closest('.panel-profile');
-            if (panel) {
-                partnersContainer = panel.querySelector('div[style*="display: grid"]');
-            }
-        });
-
-        if (!partnersContainer) {
-            partnersContainer = doc.querySelector('a[href*="/vtc/"] img[src*="/images/vtc/logo/"]')?.parentElement?.parentElement;
-        }
+        const partnersContainer = findPartnersContainer(doc);
 
         if (!partnersContainer) throw new Error('Partners element not found in HTML');
 
@@ -126,7 +187,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const img = a.querySelector('img');
             let name = a.getAttribute('data-original-title') || img?.getAttribute('alt') || 'Unknown VTC';
 
-            name = name.replace("'s VTC logo", "").trim();
+            name = name.replace("'s VTC logo", "").replace(/[\u200B-\u200F\uFEFF]/g, '').trim();
 
             if (img) {
                 mappedPartners.push({
@@ -143,16 +204,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderMarqueeTrack(mappedPartners);
 
     } catch (error) {
-        const backupPartners = [
-            { id: '76299', name: 'EUROFEST GROUP', logo: 'https://static.truckersmp.com/images/vtc/logo/76299.1738548802.jpg', url: 'https://truckersmp.com/vtc/76299' },
-            { id: '80829', name: 'Trucks of Ukraine', logo: 'https://static.truckersmp.com/images/vtc/logo/80829.1767092185.png', url: 'https://truckersmp.com/vtc/80829' },
-            { id: '84596', name: 'Фенікс TK UA', logo: 'https://static.truckersmp.com/images/vtc/logo/84596.1768643578.jpg', url: 'https://truckersmp.com/vtc/84596' },
-            { id: '81402', name: 'Neon Convoys', logo: 'https://static.truckersmp.com/images/vtc/logo/81402.1765756202.png', url: 'https://truckersmp.com/vtc/81402' },
-            { id: '77792', name: 'Fast Line UA', logo: 'https://static.truckersmp.com/images/vtc/logo/77792.1776796284.png', url: 'https://truckersmp.com/vtc/77792' },
-            { id: '50578', name: 'Truck Convoy Control', logo: 'https://static.truckersmp.com/images/vtc/logo/50578.1777354833.png', url: 'https://truckersmp.com/vtc/50578' },
-            { id: '64631', name: 'Pean Logistics', logo: 'https://static.truckersmp.com/images/vtc/logo/64631.1735910236.png', url: 'https://truckersmp.com/vtc/64631' },
-            { id: '75200', name: 'Aura', logo: 'https://static.truckersmp.com/images/vtc/logo/75200.1729511385.png', url: 'https://truckersmp.com/vtc/75200' }
-        ];
-        renderMarqueeTrack(backupPartners);
+        console.error('Partners marquee failed:', error);
+        renderMarqueeTrack([]);
     }
 });
